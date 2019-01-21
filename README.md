@@ -44,6 +44,7 @@ Restart the terminal
 
 - automation : add a callback to internet connection
 - globalSave: the commands are being saved in a txt file and will show up in the folder need to make it a globalStore
+- parser: a string parser to add command with quoatiation currently is used as \"some \"
 
 
 ## Output
