@@ -1,3 +1,4 @@
 cd /Users/aashish/Workspace/SandBox/bash-zero/diwo && git init
 cd /Users/aashish/Workspace/SandBox/bash-zero/diwo && git add -A
 cd /Users/aashish/Workspace/SandBox/bash-zero/diwo && git commit -m Initial commit
+cd /Users/aashish/Workspace/SandBox/bash-zero/diwo && git commit -m Initial commit
