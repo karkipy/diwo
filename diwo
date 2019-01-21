@@ -1,0 +1,21 @@
+case "$1" in
+"stack")
+  path=$(eval 'pwd')
+  command="cd "$path
+  command+=" && "
+  command+=" "${@:2}
+  echo $command >> commandlist.txt;;
+"pop")
+  cat commandlist.txt | while read LINE; do
+      OUTPUT=$(eval $LINE)
+      if ! [ -z "$2" ]
+        then
+          if [ $2 == "show" ];then
+            echo $OUTPUT
+          fi;
+      fi
+  done
+  cat /dev/null > commandlist.txt;
+
+  ;;
+esac
