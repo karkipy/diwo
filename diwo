@@ -1,25 +1,54 @@
-file='command.txt'
+file='~/diwo/command.txt'
 
-case "$1" in
-"stack")
+stack() {
   path=$(eval 'pwd')
   command="cd "$path
   command+=" && "
-  command+=" "${@:2}
-  echo $command >> $file;;
-"pop")
-  cat $file | while read LINE; do
+  command+=" "$@
+  absPath="echo ~/diwo/command.txt"
+  filePath=$(eval $absPath)
+  echo $command >> $filePath
+}
 
-      if ! [ -z "$2" ]
+pop() {
+  absPath="echo ~/diwo/command.txt"
+  filePath=$(eval $absPath)
+  cat $filePath | while read LINE; do
+
+      if ! [ -z "$1" ]
         then
-          if [ $2 == "show" ];then
-           eval echo $LINE
+          if [ $1 == "show" ];then
+            eval echo $LINE
           fi;
         else
           OUTPUT=$(eval $LINE)
       fi
   done
-  cat /dev/null > $file ;
+  cat /dev/null > $filePath ;
+}
 
-  ;;
+listen() {
+  while true; do
+    echo -e "GET http://google.com HTTP/1.0\n\n" | nc google.com 80 > /dev/null 2>&1
+
+    if [ $? -eq 0 ]; then
+        echo "Online"
+        pop $1
+        break
+    else
+        echo "Offline"
+    fi
+  done
+}
+
+case "$1" in
+  "stack")
+    stack ${@:2}
+    ;;
+  "pop")
+    pop $2
+    ;;
+  "listen")
+    listen $2
+    ;;
 esac
