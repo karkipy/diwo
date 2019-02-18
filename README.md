@@ -5,6 +5,8 @@ A simple shell script that records your commands when you are offline, and you c
 
 ## Installation
 
+Create A folder in Root Directory as /diwo with a command.txt file in it and give all read and write permission
+
 Manual
 
 ```bash
@@ -36,6 +38,7 @@ curl https://raw.githubusercontent.com/karkipy/diwo/master/diwo -o /usr/local/bi
 
 - stack : add commands so that you can run it at once
 - pop: run save commands , show is a param to show the log
+- listen: waits to have an internet connectiona and performs pop , param to pass is as of pop
 
 Restart the terminal
 
@@ -43,7 +46,6 @@ Restart the terminal
 ## TODO
 
 - automation : add a callback to internet connection
-- globalSave: the commands are being saved in a txt file and will show up in the folder need to make it a globalStore
 - parser: a string parser to add command with quoatiation currently is used as \"some \"
 
 
